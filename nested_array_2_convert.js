@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 let roster = [
   ['Number', 'Name', 'Position', 'Points per Game'],
@@ -13,6 +13,17 @@ let roster = [
 
 function convert_roster_format (nestedArray) {
   // your convert code here
+  var result = [];
+  for (var i = 1; i < nestedArray.length; i++) {
+    var obj = {}
+    obj[nestedArray[0][0]] = nestedArray[i][0];
+    obj[nestedArray[0][1]] = nestedArray[i][1];
+    obj[nestedArray[0][2]] = nestedArray[i][2];
+    obj[nestedArray[0][3]] = nestedArray[i][3];
+    result.push(obj);
+    // console.log(obj);
+  }
+  return result;
 }
 
 let object_roster = convert_roster_format(roster)
@@ -22,6 +33,6 @@ console.log(object_roster[2])
 
 console.log(object_roster[0]['Name'] == 'Joe Schmo') // outputs true
 
-module.exports = {
-  convert_roster_format
-}
+// module.exports = {
+//   convert_roster_format
+// }
